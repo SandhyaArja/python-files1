@@ -1,0 +1,23 @@
+ID : 0210462
+Name:Sandhya
+place:Vijayawada
+code 521230
+ModuleNotFoundError: No module named 'pip._internal'
+
+mport os
+#import ssl,smtplib,time
+from email.message import EmailMessage
+Email_add='arjasandhya@gmail'
+Email_pass='tqeuuivkiiwuhzgo'
+msg = EmailMessage()
+msg['Subject'] = 'Going to Ice cream'
+msg['From'] = Email_add
+msg['To'] = 'vijay995577@gmail.com'
+
+
+with smtplib.SMTP_SSL("smtp.gmail.com",465)as smtp:
+    smtp.starttls()
+    smtp.login(Email_add,Email_pass)
+
+    smtp.sendmail(Email_add,"arjasandhya@gmail.com",msg)
+pip install pdf_mail
