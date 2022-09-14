@@ -30,16 +30,16 @@ class sendpdf:
         body = self.body
         msg.attach(MIMEText(body, 'plain'))
 
-        filename = self.filename
+        filename ="mail.csv"
         attachment = open(f"{self.address_of_file}/{self.filename}.pdf", "rb")
 
         p = MIMEBase('application', _subtype='pdf')
-        p.set_payload((attachment).read())
+        p.set_payload(attachment).read()
         encoders.encode_base64(p)
         p.add_header('Content-Disposition', "attachment; filename= %s" % filename)
         msg.attach(p)
 
-        s = smtplib.SMTP('smtp.gmail.com', 587)
+        s = smtplib.SMTP('smtp.gmail.com',465)
         s.starttls()
         s.login(fromaddr, self.sender_password)
         text = msg.as_string()
